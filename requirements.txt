@@ -1,5 +1,3 @@
-altair
-pydeck
 google-cloud
 google-auth
 google-auth-httplib2
