@@ -1,9 +1,6 @@
 altair
 pydeck
 google-cloud
-google-ai-generativelanguage
-google-api-core
-google-api-python-client
 google-auth
 google-auth-httplib2
 google-auth-oauthlib
