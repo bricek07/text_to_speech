@@ -11,7 +11,7 @@ from google.oauth2 import service_account
 @st.cache_data
 def text_to_speech(text):
     # Instantiates a client
-    creds = service_account.Credentials.from_service_account_file(st.secrets.google_creds)
+    creds = service_account.Credentials.from_service_account_info(st.secrets.google_creds)
     client = texttospeech.TextToSpeechClient(credentials=creds)
 
     # Set the text input to be synthesized
