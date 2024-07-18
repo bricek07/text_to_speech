@@ -1,5 +1,6 @@
 google-cloud
 google-auth
+google-cloud-texttospeech
 google-auth-httplib2
 google-auth-oauthlib
 numpy
