@@ -43,7 +43,7 @@ text_to_transform = st.text_area(label="Entrez le texte que vous souhaitez conve
 
 language = st.radio("Choisissez une langue", ["fr-FR", "en-US"])
 
-transform_button = st.button("Transform")
+transform_button = st.button("Convertir")
 
 if transform_button:
     if text_to_transform != '':
