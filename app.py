@@ -9,7 +9,7 @@ from google.oauth2 import service_account
 
 
 @st.cache_data
-def text_to_speech(text):
+def text_to_speech(text, language):
     # Instantiates a client
     creds = service_account.Credentials.from_service_account_info(st.secrets.google_creds)
     client = texttospeech.TextToSpeechClient(credentials=creds)
@@ -20,7 +20,7 @@ def text_to_speech(text):
     # Build the voice request, select the language code ("en-US") and the ssml
     # voice gender ("neutral")
     voice = texttospeech.VoiceSelectionParams(
-        language_code="fr-FR", ssml_gender=texttospeech.SsmlVoiceGender.NEUTRAL
+        language_code=language, ssml_gender=texttospeech.SsmlVoiceGender.NEUTRAL
     )
 
     # Select the type of audio file you want returned
@@ -41,10 +41,12 @@ st.title("Text To Speech App")
 
 text_to_transform = st.text_area(label="Entrez le texte que vous souhaitez convertir en audio", value="")
 
+language = st.radio("Choisissez une langue", ["fr-FR", "en-US"])
+
 transform_button = st.button("Transform")
 
 if transform_button:
     if text_to_transform != '':
-        audio = text_to_speech(text_to_transform)
+        audio = text_to_speech(text_to_transform, language)
 
         st.audio(audio)
